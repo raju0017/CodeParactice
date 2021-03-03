@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="20787" started-at="2016-06-13T16:17:32Z" finished-at="2016-06-13T16:17:53Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="20787" started-at="2016-06-13T16:17:32Z" finished-at="2016-06-13T16:17:53Z">
+      <class name="com.demoactitime.test.DemoActitimeScenorio_01">
+        <test-method status="PASS" signature="preCondition()[pri:0, instance:com.demoactitime.test.DemoActitimeScenorio_01@38c5cc4c]" name="preCondition" is-config="true" duration-ms="13386" started-at="2016-06-13T21:47:32Z" finished-at="2016-06-13T21:47:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preCondition -->
+        <test-method status="PASS" signature="testLoginTC_001()[pri:0, instance:com.demoactitime.test.DemoActitimeScenorio_01@38c5cc4c]" name="testLoginTC_001" duration-ms="7295" started-at="2016-06-13T21:47:46Z" finished-at="2016-06-13T21:47:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLoginTC_001 -->
+        <test-method status="PASS" signature="postCondition()[pri:0, instance:com.demoactitime.test.DemoActitimeScenorio_01@38c5cc4c]" name="postCondition" is-config="true" duration-ms="86" started-at="2016-06-13T21:47:53Z" finished-at="2016-06-13T21:47:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postCondition -->
+      </class> <!-- com.demoactitime.test.DemoActitimeScenorio_01 -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

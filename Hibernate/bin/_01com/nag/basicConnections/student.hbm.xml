@@ -1,0 +1,17 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="_01com.nag.basicConnections.Student" table="student2" >
+		
+		<id name="sid" column="id"/>
+		
+		<!-- <composite-id>
+			<key-property name="sid" column = "sid"/>
+		</composite-id> -->
+		
+		<property name ="sname"  column="name"/>
+		<property name ="semail" column="email"/>
+		<property name ="smarks" column="marks"/>
+	</class>
+</hibernate-mapping>

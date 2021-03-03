@@ -1,0 +1,16 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="_00com.nag.basics.Student" table="student" schema="system" >
+		
+		<id name="sid" column="S_id"/>
+		
+		<!-- <composite-id>
+			<key-property name="sid" column = "sid"/>
+		</composite-id> -->
+		
+		<property name ="sname"  column="S_name"/>
+		<property name ="sclass" column="S_class"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,13 @@
+Auto DDL Operations
+=====================
+
+hibernate.hbm2ddl.auto 
+----------------------
+	Automatically validates or exports schema DDL to the database when the SessionFactory 
+		is created. With create-drop, the database schema will be dropped when the SessionFactory is closed explicitly.
+
+
+validate 	--> validate: validate the schema, makes no changes to the database.
+create 	 	--> create: creates the schema, destroying previous data.
+update   	--> update: update the schema. 	
+create-drop -->create-drop: drop the schema at the end of the session.

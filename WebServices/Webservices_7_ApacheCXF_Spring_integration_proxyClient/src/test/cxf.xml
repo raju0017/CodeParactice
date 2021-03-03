@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+	<!--
+		Here "id" attribute can have any name
+		"serviceClass" attribute can take generated SEI
+		"address" will take wsdl url   
+	-->
+
+	<jaxws:client id="myclient" 
+					serviceClass="com.king.service.WeatherServiceImpl" 
+					address="http://localhost:9999/08_JAX_WS_Security/services/WeatherServiceImplPort?wsdl">
+					
+	<!-- this tag is for printing track trace in console side -->
+	<!-- <jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+	</jaxws:features> -->
+	
+	<jaxws:outInterceptors>
+		<ref bean ="outbount-security"/>
+	</jaxws:outInterceptors>
+	</jaxws:client>
+	
+	
+	<!-- setting Username and password  -->
+	<bean id = "outbount-security" class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+		<constructor-arg>
+			<map>
+				<entry key="action" value = "UserbameToken" />
+				
+				<!-- foe encription -->
+				<!-- <entry key="passwordType" value="PasswordDigest" /> -->
+				
+				<entry key="passwordType" value="PasswordTextt" />
+				<entry key="user" value = "dummy" />
+				<entry key="passwordCallbackClass" value="com.king.services.ClientPasswordCallback" />
+			</map>
+		</constructor-arg>
+	</bean>
+	
+	
+	
+	
+</beans>

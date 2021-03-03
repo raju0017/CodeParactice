@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://cxf.apache.org/jaxrs
+		http://cxf.apache.org/schemas/jaxrs.xsd
+		http://cxf.apache.org/jaxws
+		http://cxf.apache.org/schemas/jaxws.xsd">
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	<bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider" />
+
+	<jaxrs:server id="weatherServiceRest" address="/weatherServiceRestPort">
+
+		<jaxrs:serviceBeans>
+			<ref bean="weatherService" />
+		</jaxrs:serviceBeans>
+
+		<jaxrs:providers>
+			<ref bean="jsonProvider"></ref>
+		</jaxrs:providers>
+
+		<jaxrs:extensionMappings>
+			<entry key="xml" value="application/xml" />
+			<entry key="json" value="application/json" />
+		</jaxrs:extensionMappings>
+
+	</jaxrs:server>
+
+	<bean id="weatherService" class="com.king.service.WeatherService">
+		<property name="weatherDAO" ref="weatherDAO" />
+	</bean>
+
+	<bean id="weatherDAO" class="com.king.dao.WeatherDAO"></bean>
+
+</beans>

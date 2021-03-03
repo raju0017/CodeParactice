@@ -1,0 +1,7 @@
+<endpoints xmlns = "http://java.sun.com/xml/ns/jax-ws/ri/runtime" version ="2.0">
+
+	<endpoint name = "cservice" implementation = "com.king.service.CalServiceImpl" url-pattern = "/calService"></endpoint>
+
+	<!-- <endpoint name = "file" implementation = "com.kin.service.CalServiceImpl" url-pattern = "/fileService"></endpoint> -->
+	
+</endpoints>

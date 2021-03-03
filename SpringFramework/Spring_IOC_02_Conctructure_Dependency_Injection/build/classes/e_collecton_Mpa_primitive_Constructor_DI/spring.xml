@@ -1,0 +1,18 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" 
+"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+	<bean id="q" class="e_collecton_Mpa_primitive_Constructor_DI.Question">
+		<constructor-arg value="111" type="int" />
+		<constructor-arg value="what is java" />
+		<constructor-arg>
+			<map>
+				<entry key="1" value ="java is programming language" />
+				<entry key="2" value ="java is platform" />
+			</map>
+		
+		</constructor-arg>
+		
+	</bean>
+
+</beans>

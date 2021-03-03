@@ -1,0 +1,29 @@
+<beans   
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+
+	<bean id = "b" class = "business.Bank"/>
+	<bean id = "lbs" class = "services.LogBeforeService"/>
+	<bean id = "las" class = "services.LogAfterService"/>
+	<bean id = "lars" class ="services.LogAroundService"/>
+	<bean id = "mi" class ="services.LogINExceptionService"/>
+	
+	<bean id = "proxy" class ="org.springframework.aop.framework.ProxyFactoryBean">
+
+		<property name="target" ref = "b"/>
+		<property name="interceptorNames">
+		
+			<list>
+				<value>lbs</value>
+				<value>las</value>
+				<value>lars</value>
+				<value>mi</value>
+			</list>
+		</property>
+	
+	</bean>
+
+</beans>

@@ -1,0 +1,16 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" 
+"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+	<bean id="q" class="g_collection_Map_primitive_setter_DI.Question">
+		<property name="id" value="111"/>
+		<property name="qname" value="what is java?"/>
+		<property name="answers">
+			<map>
+				<entry key="1" value="java is a prigramming language"/>
+				<entry key="2" value="java is a platform"/>
+			</map>
+		</property>		
+	</bean>
+
+</beans>

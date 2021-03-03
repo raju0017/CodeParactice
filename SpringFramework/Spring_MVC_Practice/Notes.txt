@@ -1,0 +1,19 @@
+
+Need to follow these steps to create MVC Application
+=======================================================
+1. Modify web.xml file
+2. Create spring-dispacher-servlet.xml file
+3. Create the HelloController.java class (A controller)
+4. Create the HelloPage.jsp file (A view)
+
+MVC Application Using Annotations
+=================================
+
+if we are using annotations in class we need to specify below entry in spring configuration file to 
+scan the controller classes from the package
+
+	<context:component-scan base-package="com.nag.controllers"/>
+
+@Controller -->class level
+
+@RequestMapping("/welcome") --> method level

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="WeatherServiceImplService" targetNamespace="http://service.king.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.king.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://service.king.com/" schemaLocation="weatherserviceimpl_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="getWeatherByCityIDResponse">
+    <wsdl:part name="parameters" element="tns:getWeatherByCityIDResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getWeatherByCityID">
+    <wsdl:part name="parameters" element="tns:getWeatherByCityID">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTempByWeather">
+    <wsdl:part name="parameters" element="tns:getTempByWeather">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTempByWeatherResponse">
+    <wsdl:part name="parameters" element="tns:getTempByWeatherResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WeatherServiceImpl">
+    <wsdl:operation name="getWeatherByCityID">
+      <wsdl:input name="getWeatherByCityID" message="tns:getWeatherByCityID">
+    </wsdl:input>
+      <wsdl:output name="getWeatherByCityIDResponse" message="tns:getWeatherByCityIDResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTempByWeather">
+      <wsdl:input name="getTempByWeather" message="tns:getTempByWeather">
+    </wsdl:input>
+      <wsdl:output name="getTempByWeatherResponse" message="tns:getTempByWeatherResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WeatherServiceImplServiceSoapBinding" type="tns:WeatherServiceImpl">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getWeatherByCityID">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getWeatherByCityID">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getWeatherByCityIDResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTempByWeather">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getTempByWeather">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTempByWeatherResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WeatherServiceImplService">
+    <wsdl:port name="WeatherServiceImplPort" binding="tns:WeatherServiceImplServiceSoapBinding">
+      <soap:address location="http://localhost:8077/7_ApacheCXF_Spring_integration/services/WeatherServiceImplPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

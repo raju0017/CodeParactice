@@ -3,7 +3,12 @@
 
 <beans>
 
-	<bean id="t" class="core_containerTest.Test" scope="prototype" />
-	<!-- <bean id="t" class="core_containerTest.Test" scope="singleton" /> -->
+	<bean id="st" class="core_containerTest.Student" scope="prototype">
+		<property name="rollNo" value= "0017" />
+		<property name="name" value="King" />
+	</bean>
+	
+	
+	<!-- <bean id="st" class="core_containerTest.Student" scope="singleton" /> -->
 
 </beans>

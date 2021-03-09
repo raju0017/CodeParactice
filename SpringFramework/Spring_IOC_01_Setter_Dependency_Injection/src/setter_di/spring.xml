@@ -1,0 +1,154 @@
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" 
+"http://www.springframework.org/dtd/spring-beans-2.0.dtd"> -->
+
+<!-- this is schema xml for properties injection -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+
+	<!-- Setter method injection with primitive-->
+	<bean id="student" class="setter_di.Student" scope="prototype">
+		<property name="name" value="Nagaraj" />
+		<property name="age" value="24" />
+		<property name="email" value="Nagaraj@gamil.com" />
+		
+		<!-- Setter method injection with primitive-->
+		<property name="address" ref="address"/>
+		
+				<!-- OR  this is called as inner bean approach-->
+			
+			<!-- 	<bean id="address" class="setter_di.Address">
+				<property name="houseNo" value="577"/>
+				<property name="area" value="some Colony"/>
+				<property name="city" value="kurnool"/>
+				<property name="state" value="AP"/>
+				<property name="pinCode" value="12345"></property>
+			</bean> -->
+		
+		<!-- Setter method injection with Collection type List-->
+		<property name="subjects">
+			<list>
+				<value>Telugu</value>
+				<value>Hindi</value>
+				<value>English</value>
+				<value>Maths</value>
+			</list>
+		</property>
+		
+		<!-- Setter method injection with Collection type Map-->
+		<property name="marks">
+			<map>
+				<entry key="Telugu" value="73"></entry>
+				<entry key="Hindi" value="82"></entry>
+				<entry key="Engtish" value="62"></entry>
+				<entry key="Maths" value="92"></entry>
+			</map>
+		</property>
+		
+		<!-- Setter method injection with Collection type Object List-->
+		<property name="addr">
+			<list>
+				<ref bean="address"/>
+			</list>
+		</property>
+		
+		<!-- Setter method injection with Collection type Object Map-->
+		<property name="teacher">
+			<map>
+				<entry key="10" value-ref="teacher"></entry>
+			</map>
+		</property>
+		
+		<!-- Setter method injection with Array type primitive-->
+		<property name="classes">
+			<list>
+				<value>1st class</value>
+				<value>2nd class</value>
+				<value>3rd class</value>
+				<value>4th class</value>
+			</list>
+		</property>
+		
+		<!-- Setter method injection with Array type Objects-->
+		<property name="obj">
+			<list>
+				<ref bean="address" ></ref>
+				<ref bean="teacher" ></ref>
+			</list>
+		</property>
+		
+		<!-- Setter method injection with child collection type-->
+		<property name="vector">
+		<util:list list-class="java.util.Vector">
+			<value>vector1</value>
+			<value>vector2</value>
+		</util:list>
+		</property>
+		
+		<!-- Setter method injection with child collection Map type-->
+		<property name="countryCaptal">
+			<util:map map-class="java.util.Hashtable">
+				<entry key="India" value="Delhi"></entry>
+				<entry key="Pakistan" value="Islamabad"></entry>
+				<entry key="China" value="Beijing"></entry>
+			</util:map>
+		</property>
+		
+		
+		<!-- Setter method injection with properties-->
+		<property name="cp">
+			<ref bean="connectionPool"/>
+		</property>
+		
+		
+		
+				
+
+	</bean>
+	
+	<!--  this is called as call by reference bean approach-->
+	<bean id="address" class="setter_di.Address">
+		<property name="houseNo" value="577"/>
+		<property name="area" value="some Colony"/>
+		<property name="city" value="kurnool"/>
+		<property name="state" value="AP"/>
+		<property name="pinCode" value="12345"></property>
+	</bean>
+	
+	<bean id="teacher" class="setter_di.Teacher">
+			<property name="name" value="Arun"></property>
+			<property name="id" value="10"></property>
+			<property name="dealingSub" value="English"></property>
+	</bean>
+	
+<!-- 	<bean id="cp" class="asetter_di.ConnectionPool">
+		<property name="driver">
+			<util:properties location="classpath:a_primitive_setter_DI/Drivers.properties" />
+		</property>
+		<property name="url">
+			<util:properties location="classpath:a_primitive_setter_DI/Drivers.properties" />
+		</property>
+		<property name="username">
+			<util:properties location="classpath:a_primitive_setter_DI/Drivers.properties" />
+		</property>
+		<property name="password">
+			<util:properties location="classpath:a_primitive_setter_DI/Drivers.properties" />
+		</property>
+	</bean> -->
+	
+	<!-- properties setting using expression tags -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+		<property name="location" value="setter_di/Drivers.properties"></property>
+	</bean>
+	
+	<bean id="connectionPool" class="setter_di.ConnectionPool">
+		<property name="driver" value="${driver}"/>
+		<property name="url" value="${url}"/>
+		<property name="username" value="${username}"/>
+		<property name="password" value="${password}"/>
+	</bean>
+	
+	
+</beans>

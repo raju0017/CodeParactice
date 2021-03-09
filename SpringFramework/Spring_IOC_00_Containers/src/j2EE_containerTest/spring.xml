@@ -3,6 +3,9 @@
 
 <beans>
 
-	<bean id="t" class="j2EE_containerTest.TestClass" scope="prototype" />
+	<bean id="student" class="j2EE_containerTest.Student" scope="prototype">
+		<property name="rollNo" value="0017"/>
+		<property name="name" value="Nag"></property>
+	</bean>
 
 </beans>

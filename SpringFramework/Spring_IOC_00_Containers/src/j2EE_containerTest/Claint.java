@@ -9,12 +9,8 @@ public class Claint {
 	{
 		ApplicationContext apc = new ClassPathXmlApplicationContext("j2EE_containerTest/spring.xml");
 		
-		apc.getBean("t");
-		apc.getBean("t");
-		apc.getBean("t");
-		
-		//checks xml document
-		//it will creates istances for singleton beans 
+		Student student = (Student)apc.getBean("student");
+		student.displayInfo();
 		
 	}
 

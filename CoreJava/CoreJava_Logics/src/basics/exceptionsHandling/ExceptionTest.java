@@ -18,5 +18,11 @@ public class ExceptionTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		try {
+			validate(17);
+		} catch (InvalidAgeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
